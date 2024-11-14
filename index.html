@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Mert Halil Acun" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/css/glide.core.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/css/glide.theme.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>CinePulse</title>
+  </head>
+  <body>
+    <header>
+      <div id="header">
+        <div id="menu">
+          <div id="menu-bar" onclick="menuOnClick()">
+            <div id="bar1" class="bar"></div>
+            <div id="bar2" class="bar"></div>
+            <div id="bar3" class="bar"></div>
+          </div>
+          <nav class="nav" id="nav">
+            <ul>
+              <li><i class="fas fa-home"></i><a href="index.html">Home</a></li>
+              <li>
+                <i class="fas fa-tv"></i><a href="tvseries.html">TV Shows</a>
+              </li>
+              <li>
+                <i class="fas fa-film"></i><a href="movies.html">Movies</a>
+              </li>
+              <li>
+                <i class="fas fa-info-circle"></i
+                ><a href="About_Us.html">About Us</a>
+              </li>
+             
+              <br />
+              <li>
+                <i class="fas fa-search"></i><a href="#">Custom Result</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="menu-bg" id="menu-bg"></div>
+        <div class="container">
+          <div class="row">
+            <div class="logo">
+              <a href="index.html">
+                <img
+                  id="logo"
+                  src="CinePulse.png"
+                  alt="CinnePulse"
+                  draggable="false"
+                />
+              </a>
+            </div>
+            <div class="col-md-6 search">
+              <input
+                type="text"
+                class="form-control search_input"
+                placeholder="Search for movies and tv shows"
+                id="searchInput"
+              />
+              <div id="search-results"></div>
+            </div>
+            <div class="toggle">
+              <i class="fas fa-sun toggle-icon"></i>
+              <i class="fas fa-moon toggle-icon"></i>
+              <div class="toggle-ball"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section id="banner">
+        <div class="glide">
+          <div class="banner-container">
+            <h1 class="banner-heading">Recommended For You</h1>
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides" id="bannerSlides"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="trending">
+        <div class="container">
+          <div class="title_trending">
+            <h2>Trending This Week</h2>
+            <div class="slider-arrows">
+              <div id="arrow1" class="arrow left-arrow" onclick="slideLeft()">
+                &#9665;
+              </div>
+              <div id="arrow2" class="arrow right-arrow" onclick="slideRight()">
+                &#9655;
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="poster_container trending_container"></div>
+        </div>
+      </section>
+      <section id="popular">
+        <div class="container">
+          <div class="title_popular">
+            <h2>Popular</h2>
+            <div class="slider-arrows">
+              <div
+                id="popular-arrow1"
+                class="arrow left-arrow"
+                onclick="popularSlideLeft()"
+              >
+                &#9665;
+              </div>
+              <div
+                id="popular-arrow2"
+                class="arrow right-arrow"
+                onclick="popularSlideRight()"
+              >
+                &#9655;
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="poster_container popular_container"></div>
+        </div>
+      </section>
+      <section id="rated">
+        <div class="container">
+          <div class="title_rated">
+            <h2>High Rated</h2>
+            <div class="slider-arrows">
+              <div
+                id="rated-arrow1"
+                class="arrow left-arrow"
+                onclick="ratedSlideLeft()"
+              >
+                &#9665;
+              </div>
+              <div
+                id="rated-arrow2"
+                class="arrow right-arrow"
+                onclick="ratedSlideRight()"
+              >
+                &#9655;
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="poster_container rated_container"></div>
+        </div>
+      </section>
+
+      <section id="upcoming">
+        <div class="container">
+          <div class="title_upcoming">
+            <h2>Upcoming</h2>
+            <div class="slider-arrows">
+              <div
+                id="upcoming-arrow1"
+                class="arrow left-arrow"
+                onclick="upcomingSlideLeft()"
+              >
+                &#9665;
+              </div>
+              <div
+                id="upcoming-arrow2"
+                class="arrow right-arrow"
+                onclick="upcomingSlideRight()"
+              >
+                &#9655;
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="poster_container upcoming_container"></div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <section id="footer">
+        <div class="container">
+          <div class="row credit">
+            <div class="col-md-3 support">
+              <h6>Support</h6>
+              <a href="#">Privacy & Policy</a>
+              <a href="#">Terms & Conditions</a>
+              <a href="#">FAQs</a>
+            </div>
+            <div class="col-md-2 services">
+              <h6>Our Services</h6>
+              <a href="About_Us.html">About Us</a>
+              <a href="#">Blog</a>
+            </div>
+            <div class="col-md-3 contact">
+              <h6>Contact Us</h6>
+              <a href="contactUs.html">Contact Us</a>
+              <p>Connect with us on:</p>
+              <a href="#" class="social-icon"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="social-icon"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon"
+                ><i class="far fa-envelope"></i
+              ></a>
+            </div>
+            <div class="col-md-4 newsletter">
+              <h6>Subscribe to Our Newsletter</h6>
+              <p>
+                Stay updated with the latest movies and TV shows. Subscribe now!
+              </p>
+              <form>
+                <div class="input-group mb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Your Email"
+                    aria-label="Your Email"
+                    aria-describedby="button-addon2"
+                  />
+                  <button
+                    class="btn btn-primary"
+                    type="button"
+                    id="button-addon2"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <hr class="my-4" />
+          <p class="copyright">© BBSUL 2024 Cine Pulse. All rights reserved.</p>
+        </div>
+      </section>
+    </footer>
+
+    <div
+      class="modal fade"
+      id="trailerModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <button
+            type="button"
+            class="close close-button"
+            data-dismiss="modal"
+            aria-label="Close"
+            onclick="closeTrailer()"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+          <div class="modal-body">
+            <iframe
+              id="trailerModalIframe"
+              width="100%"
+              height="500"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="survey-container">
+      <div id="survey-popup" class="container bg-light p-4 rounded">
+        <h2 class="mb-4">
+          Welcome to <span style="color: blue; font-weight: bold;">CinePulse!</span> Help us personalize your experience.
+        </h2>
+        <p>
+          Share your preferences with us, and let's make your movie-watching
+          journey extraordinary!
+        </p>
+        <form id="survey-form">
+          <div class="mb-3">
+            <label for="movie-genre" class="form-label"
+              >Select your favorite movie genre:</label
+            >
+            <select
+              id="movie-genre"
+              name="movie-genre"
+              class="form-select"
+              required
+            ></select>
+          </div>
+          <div class="mb-3">
+            <label for="tv-genre" class="form-label"
+              >Select your favorite TV series genre:</label
+            >
+            <select
+              id="tv-genre"
+              name="tv-genre"
+              class="form-select"
+              required
+            ></select>
+          </div>
+          <button
+            type="button"
+            onclick="submitSurvey()"
+            class="btn btn-primary"
+          >
+            Submit
+          </button>
+          <button
+            type="button"
+            onclick="cancelSurvey()"
+            class="btn btn-secondary"
+          >
+            Cancel
+          </button>
+        </form>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+    <script src="./script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  </body>
+</html>
